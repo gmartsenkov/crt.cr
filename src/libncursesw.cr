@@ -67,4 +67,11 @@ lib LibNcursesw
   fun wclear(win : WindowPtr) : Int32
   fun wmove(win : WindowPtr, y : Int32, x : Int32) : Int32
   fun wrefresh(win : WindowPtr) : Int32
+  fun wgetstr(win : WindowPtr, str : LibC::Char*) : Int32
+  fun keypad(win : WindowPtr, bool : Bool) : Int32
+  fun scrollok(win : WindowPtr, bool : Bool) : Int32
+  fun getch() : Int32
+  fun wgetch(win : WindowPtr) : Int32
+  fun nodelay(win : WindowPtr, bool : Bool) : Int32
+  fun flushinp() : Int32
 end

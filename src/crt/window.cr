@@ -8,6 +8,9 @@ module Crt
       r = Crt.y if r < 0
       c = Crt.x if c < 0
       @winp = LibNcursesw.newwin(r, c, y, x)
+      LibNcursesw.keypad(@winp, true)
+      LibNcursesw.scrollok(@winp, true)
+      LibNcursesw.nodelay(@winp,true)
       @row = r
       @col = c
     end
@@ -33,7 +36,7 @@ module Crt
     end
 
     def print(str : String)
-      LibNcursesw.waddstr(@winp, str)
+      LibNcursesw.waddstr(@winp, " "+str)
     end
 
     def puts(str : String)
@@ -50,6 +53,10 @@ module Crt
 
     def getch
       LibNcursesw.getch
+    end
+
+    def wgetch
+      LibNcursesw.wgetch(@winp)
     end
 
     def mouseinterval(v : Int32)
